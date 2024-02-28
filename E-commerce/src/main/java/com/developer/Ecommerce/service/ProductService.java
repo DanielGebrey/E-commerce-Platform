@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.developer.Ecommerce.DTO.ProductDTO;
-import com.developer.Ecommerce.model.Product;
 
 @Service
 public interface ProductService {
     @Autowired
-    public List<ProductDTO> getProduct();
+    public List<ProductDTO> getAllProduct();
 }
