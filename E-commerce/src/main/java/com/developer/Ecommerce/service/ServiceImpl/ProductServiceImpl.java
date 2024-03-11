@@ -19,4 +19,20 @@ public class ProductServiceImpl implements ProductService {
       List<Product> product = productRepo.findAll();
       return product.stream().map(product1 -> new ProductDTO(product1.getId(),product1.getName(),product1.getDescription(),product1.getPrice())).toList();  
     }
+
+    @Override
+    public ProductDTO getProductById(long id) {
+      Product product = productRepo.findById(id).get();
+      return new ProductDTO(product.getId(),product.getName(),product.getDescription(),product.getPrice());
+    }
+
+    @Override
+    public ProductDTO addProduct(ProductDTO productDTO) {
+        Product product = new Product();
+        product.setName(productDTO.getName());
+        product.setDescription(productDTO.getDescription());
+        product.setPrice(productDTO.getPrice());
+        productRepo.save(product);
+        return new ProductDTO(product.getId(),product.getName(),product.getDescription(),product.getPrice());
+    }
 }

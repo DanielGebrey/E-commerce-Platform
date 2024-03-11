@@ -11,4 +11,6 @@ import com.developer.Ecommerce.DTO.ProductDTO;
 public interface ProductService {
     @Autowired
     public List<ProductDTO> getAllProduct();
+    public ProductDTO getProductById(long id);
+    public ProductDTO addProduct(ProductDTO productDTO);
 }
